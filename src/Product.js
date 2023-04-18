@@ -1,20 +1,26 @@
 import React from 'react'
 import './Product.css'
 
-const Product = () => {
+const Product = ({ id, title, image, price, rating }) => {
     return (
         <div>
             <div className='product'>
                 <div className='product__info'>
-                    <p>Bennett Mystic 16.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Red)</p>
+                    <p>{title}</p>
                     <p className='product__price'>
                         <small>$</small>
-                        <strong>30</strong>
+                        <strong>{price}</strong>
                     </p>
-                    <div className='product__rating'>⭐⭐</div>
+                    <div className='product__rating'>
+                        {Array(rating)
+                            .fill()
+                            .map((_, i) => (
+                                <p>⭐</p>
+                            ))}
+                    </div>
                 </div>
 
-                <img src={require('./images/cartera.jpg')} alt='product'></img>
+                <img src={image} alt='product'></img>
 
                 <button>Add to basket</button>
             </div>
